@@ -1,0 +1,19 @@
+.navigation-bar {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 5px solid #96e6b3;
+  /* box-shadow: 100px 100px 100px red; */
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 40px;
+}
+
+.green {
+  color: #96e6b3;
+}

@@ -1,39 +1,46 @@
-import logo from "./logo.svg";
+import { render } from "@testing-library/react";
+import React, { Component } from "react";
 import "./App.css";
+import NavBar from "./NavBar";
 import movieData from "./movieData";
+import MovieCard from "./MovieCard";
+import MovieContainer from "./MovieContainer";
 
-function App() {
-  return (
-    <div className="App">
-      <nav className="navigation-bar">
-        <div className="logo">Rancid<span className="green">Tomatillos</span></div>
-        <div className="search-bar">
-          <input className="text-box" placeholder="Search Movies"></input>
-          <button className="search-button">🔎</button>
-        </div>
-      </nav>
-      <main>
-        <div className="movie-container">
-          <section className="movie-preview-card">
-            IMAGE<br />
-            TITLE <br />
-            STATS<br />
-          </section>
-          <section className="movie-preview-card">
-            IMAGE<br />
-            TITLE <br />
-            STATS<br />
-          </section>
-          <section className="movie-preview-card">
-            IMAGE<br />
-            TITLE <br />
-            STATS<br />
-          </section>
-        </div>
-      </main>
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      movies: [],
+    };
+  }
+
+  componentDidMount = () => {
+    const moviesData = movieData.movies.map((movie) => {
+      return {
+        id: movie.id,
+        poster_path: movie.poster_path,
+        backdrop_path: movie.backdrop_path,
+        title: movie.title,
+        average_rating: movie.average_rating,
+        release_date: movie.release_date,
+      };
+    });
+    this.setState({ movies: [...moviesData] });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        {console.log(this.state)}
+        {console.log(this.state.movies[0])}
+        <NavBar />
+        <main>
+          <MovieContainer movieArray={this.state.movies} />
+        </main>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default App;
