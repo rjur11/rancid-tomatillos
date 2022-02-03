@@ -1,0 +1,13 @@
+.movie-preview-card {
+  width: 200px;
+  margin: 20px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  /* box-shadow: rgba(50, 50, 93, 1) 0px 13px 27px -5px, rgba(0, 0, 0, 1) 0px 8px 16px -8px; */
+  /* box-shadow: 5px 5px 20px #96E6B3; */
+}
+
+.movie-card-image {
+  width: 80px;
+}
