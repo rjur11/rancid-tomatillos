@@ -5,20 +5,33 @@ import movieData from "./movieData";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Rana and Tony
-        </a>
-      </header>
+      <nav className="navigation-bar">
+        <div className="logo">Rancid<span className="green">Tomatillos</span></div>
+        <div className="search-bar">
+          <input className="text-box" placeholder="Search Movies"></input>
+          <button className="search-button">🔎</button>
+        </div>
+      </nav>
+      <main>
+        <div className="movie-container">
+          <section className="movie-preview-card">
+            IMAGE<br />
+            TITLE <br />
+            STATS<br />
+          </section>
+          <section className="movie-preview-card">
+            IMAGE<br />
+            TITLE <br />
+            STATS<br />
+          </section>
+          <section className="movie-preview-card">
+            IMAGE<br />
+            TITLE <br />
+            STATS<br />
+          </section>
+        </div>
+      </main>
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
     </div>
   );
 }
