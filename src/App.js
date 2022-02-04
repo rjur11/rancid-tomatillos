@@ -2,11 +2,12 @@ import { render } from "@testing-library/react";
 import React, { Component } from "react";
 import "./App.css";
 import NavBar from "./NavBar";
-import movieData from "./movieData";
 import MovieCard from "./MovieCard";
 import MovieContainer from "./MovieContainer";
 import Modal from "react-modal";
 import MovieModal from "./MovieModal";
+import getAllMovies from "./apiCalls"
+Modal.setAppElement('#root')
 
 class App extends Component {
   constructor() {
@@ -14,22 +15,15 @@ class App extends Component {
     this.state = {
       movies: [],
       selectedMovie: null,
+      error: false,
     };
   }
 
   componentDidMount = () => {
-    const moviesData = movieData.movies.map((movie) => {
-      return {
-        id: movie.id,
-        poster_path: movie.poster_path,
-        backdrop_path: movie.backdrop_path,
-        title: movie.title,
-        average_rating: movie.average_rating,
-        release_date: movie.release_date,
-      };
-    });
-    this.setState({ movies: [...moviesData], selectedMovie: null });
-  };
+    const apiMovieData = getAllMovies()
+    .then(({movies}) => this.setState({ movies }))
+    .catch(() => this.setState({ error: true }))
+   };
 
   unselectMovie = () => {
     this.setState({ ...this.state, selectedMovie: null });
@@ -38,9 +32,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {console.log(this.state)}
-        {console.log(this.state.movies[0])}
         <NavBar />
+        {this.state.error ? <h1>Movies failed to load. Please contact Comcast.</h1> :
         <main>
           <Modal
             isOpen={this.state.selectedMovie !== null}
@@ -59,8 +52,7 @@ class App extends Component {
               this.setState({ ...this.state, selectedMovie: movie })
             }
           />
-        </main>
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        </main>}
       </div>
     );
   }
