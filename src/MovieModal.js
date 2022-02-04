@@ -9,7 +9,7 @@ const MovieModal = ({ movie }) => {
         src={movie.backdrop_path}
         alt={movie.title}
       />
-      <h2>{movie.title}</h2>
+      <h2 className="movie-modal-title">{movie.title}</h2>
       <div className="movie-modal-information">
 
         <div className="left-side">

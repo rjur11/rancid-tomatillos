@@ -1,5 +1,6 @@
 import React from "react";
 import "./NavBar.css";
+import searchIcon from "./search.png";
 
 const NavBar = () => {
   return (
@@ -9,7 +10,8 @@ const NavBar = () => {
       </div>
       <div className="search-bar">
         <input className="text-box" placeholder="Search Movies"></input>
-        <button className="search-button">🔎</button>
+        <button className="search-button"><img src={searchIcon} className="search-icon" alt="search" /></button>
+        
       </div>
     </nav>
   );

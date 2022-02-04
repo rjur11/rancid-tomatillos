@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  flex-wrap: wrap;
   border-bottom: 5px solid #96e6b3;
   /* box-shadow: 100px 100px 100px red; */
 }
@@ -12,8 +12,50 @@
 .logo {
   font-weight: 900;
   font-size: 40px;
+  padding: 20px;
 }
 
 .green {
   color: #96e6b3;
+}
+
+.search-bar {
+  padding: 20px;
+  display: flex;
+}
+
+.text-box {
+  background-color: #454545;
+  color: #FFF;
+  border-radius: 5px 0px 0px 5px;
+  border: 2px solid #96e6b3;
+  height: 20px;
+  padding-left: 5px;
+}
+
+.search-button {
+  background-color: #96e6b3;
+  border-radius: 0px 5px 5px 0px;
+  border: 2px solid #96e6b3;
+  height: 26px;
+  cursor:pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search-icon {
+  height: 12px;
+  filter: invert(1);
+}
+
+@media screen
+  and (min-device-width: 0px)
+  and (max-device-width: 610px) {
+    .navigation-bar {
+      justify-content: center;
+  }
+  .search-bar {
+    padding-top: 0px;
+  }
 }
