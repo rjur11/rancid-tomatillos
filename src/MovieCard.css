@@ -39,10 +39,13 @@
   justify-content:space-around;
 }
 
+.movie-modal-title {
+  padding: 20px;
+}
+
 h2 {
   font-size: 15px;
   margin: 5px;
-  padding: 0px;
 }
 
 h3 {

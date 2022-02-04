@@ -2,6 +2,7 @@
   padding: 0px;
   background-color: #000;
   color: #FFF;
+  border-radius: 5px;
 }
 
 .movie-modal-card-image {
@@ -11,6 +12,8 @@
   background-color: #fff;
   padding: 0px;
   margin: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .movie-modal-information {
