@@ -2,12 +2,13 @@ import React from "react";
 import "./MovieContainer.css";
 import MovieCard from "./MovieCard";
 
-const MovieContainer = ({ movieArray }) => {
+const MovieContainer = ({ movieArray, movieClicked }) => {
   return (
     <div className="movie-container">
       {movieArray.map((movie) => {
         return (
           <MovieCard
+            onClick={() => movieClicked(movie)}
             id={movie.id}
             poster_path={movie.poster_path}
             backdrop_path={movie.backdrop_path}
