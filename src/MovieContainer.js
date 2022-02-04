@@ -9,6 +9,7 @@ const MovieContainer = ({ movieArray, movieClicked }) => {
         return (
           <MovieCard
             onClick={() => movieClicked(movie)}
+            key={movie.id}
             id={movie.id}
             poster_path={movie.poster_path}
             backdrop_path={movie.backdrop_path}
