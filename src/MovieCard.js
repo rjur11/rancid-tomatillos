@@ -2,6 +2,7 @@ import React from "react";
 import "./MovieCard.css";
 
 const MovieCard = ({
+  onClick,
   id,
   poster_path,
   backdrop_path,
@@ -10,7 +11,7 @@ const MovieCard = ({
   release_date,
 }) => {
   return (
-    <section className="movie-preview-card">
+    <section className="movie-preview-card" onClick={onClick}>
       <img className="movie-card-image" src={poster_path} alt={title} />
       <h2>{title}</h2>
       <h3>Avg. Rating: {average_rating.toFixed(1)} </h3>

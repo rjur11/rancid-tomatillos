@@ -5,12 +5,15 @@ import NavBar from "./NavBar";
 import movieData from "./movieData";
 import MovieCard from "./MovieCard";
 import MovieContainer from "./MovieContainer";
+import Modal from "react-modal";
+import MovieModal from "./MovieModal";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movies: [],
+      selectedMovie: null,
     };
   }
 
@@ -25,7 +28,11 @@ class App extends Component {
         release_date: movie.release_date,
       };
     });
-    this.setState({ movies: [...moviesData] });
+    this.setState({ movies: [...moviesData], selectedMovie: null });
+  };
+
+  unselectMovie = () => {
+    this.setState({ ...this.state, selectedMovie: null });
   };
 
   render() {
@@ -35,7 +42,23 @@ class App extends Component {
         {console.log(this.state.movies[0])}
         <NavBar />
         <main>
-          <MovieContainer movieArray={this.state.movies} />
+          <Modal
+            isOpen={this.state.selectedMovie !== null}
+            onRequestClose={this.unselectMovie}
+          >
+            {this.state.selectedMovie !== null ? (
+              <MovieModal movie={this.state.selectedMovie} />
+            ) : (
+              false
+            )}
+            <button onClick={this.unselectMovie}>❌</button>
+          </Modal>
+          <MovieContainer
+            movieArray={this.state.movies}
+            movieClicked={(movie) =>
+              this.setState({ ...this.state, selectedMovie: movie })
+            }
+          />
         </main>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
       </div>
