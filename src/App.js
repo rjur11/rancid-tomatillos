@@ -36,6 +36,8 @@ class App extends Component {
         {this.state.error ? <h1>Movies failed to load. Please contact Comcast.</h1> :
         <main>
           <Modal
+            className="Modal"
+            overlayClassName="Overlay"
             isOpen={this.state.selectedMovie !== null}
             onRequestClose={this.unselectMovie}
           >
@@ -44,7 +46,7 @@ class App extends Component {
             ) : (
               false
             )}
-            <button onClick={this.unselectMovie}>❌</button>
+            <button className="exit-modal" onClick={this.unselectMovie}>✕</button>
           </Modal>
           <MovieContainer
             movieArray={this.state.movies}

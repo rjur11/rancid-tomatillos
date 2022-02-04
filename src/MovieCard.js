@@ -13,9 +13,19 @@ const MovieCard = ({
   return (
     <section className="movie-preview-card" onClick={onClick}>
       <img className="movie-card-image" src={poster_path} alt={title} />
-      <h2>{title}</h2>
-      <h3>Avg. Rating: {average_rating.toFixed(1)} </h3>
-      <h4>Year of Release: {release_date.substring(0, 4)}</h4>
+      <div className="movie-preview-card-info">
+        <h2>{title}</h2>
+        <div className="bottom-info">
+          <div className="rating">
+            <h3>Rating:</h3>
+            <h3>{average_rating.toFixed(1)} </h3>
+          </div>
+          <div className="release-date">
+            <h3>Release:</h3>
+            <h3>{release_date.substring(0, 4)}</h3>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
