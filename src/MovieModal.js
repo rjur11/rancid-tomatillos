@@ -1,29 +1,86 @@
-import React from "react";
+import React, { Component } from "react";
 import "./MovieModal.css";
+import { getSingleMovie } from "./apiCalls";
 
-const MovieModal = ({ movie }) => {
-  return (
-    <section className="movie-modal-preview-card">
-      <img
-        className="movie-modal-card-image"
-        src={movie.backdrop_path}
-        alt={movie.title}
-      />
-      <h2 className="movie-modal-title">{movie.title}</h2>
-      <div className="movie-modal-information">
+class MovieModal extends Component {
+  constructor({ movie }) {
+    super();
+    this.state = {
+      movie: movie,
+      fullMovie: null,
+      error: false,
+    };
+  }
 
-        <div className="left-side">
-          <h3>Runtime: TIME GOES HERE </h3>
-          <h3>Release: {movie.release_date.substring(0, 4)}</h3>
-          <h3>Description: SOMETHING GOES HERE</h3>
+  componentDidMount() {
+    getSingleMovie(this.state.movie.id)
+      .then(({ movie }) => {
+        console.log(movie);
+        this.setState({ fullMovie: movie });
+      })
+      .catch((error) => this.setState({ error: true }));
+  }
+
+  renderLoading() {
+    return (
+      <section className="movie-modal-preview-card">
+        <h3>Loading movie data...</h3>
+      </section>
+    );
+  }
+
+  renderBigMovie() {
+    return (
+      <section className="movie-modal-preview-card">
+        <img
+          className="movie-modal-card-image"
+          src={this.state.movie.backdrop_path}
+          alt={this.state.movie.title}
+        />
+        <h2 className="movie-modal-title">{this.state.movie.title}</h2>
+        <div className="movie-modal-information">
+          <div className="left-side">
+            <h3>
+              Runtime:{" "}
+              {this.state.fullMovie.runtime
+                ? `${this.state.fullMovie.runtime} minutes`
+                : "Information not available"}
+            </h3>
+            <h3>Release: {this.state.movie.release_date.substring(0, 4)}</h3>
+            <h3>
+              Description:{" "}
+              {this.state.fullMovie.overview
+                ? this.state.fullMovie.overview
+                : "Information not available"}
+            </h3>
+          </div>
+          <div className="right-side">
+            <h3>Rating: {this.state.movie.average_rating.toFixed(1)} </h3>
+            <h3>
+              Genre:{" "}
+              {this.state.fullMovie.genres.name
+                ? this.state.fullMovie.genres.join(", ")
+                : "Information not available"}
+            </h3>
+          </div>
         </div>
-        <div className="right-side">
-          <h3>Rating: {movie.average_rating.toFixed(1)} </h3>
-          <h3>Genre: GENRE GOES HERE </h3>
-        </div>
-      </div>
-    </section>
-  );
-};
+      </section>
+    );
+  }
+
+  render() {
+    return (
+      <>
+        {this.state.error ? (
+          <h1>Movies failed to load. Please contact Comcast.</h1>
+        ) : this.state.fullMovie !== null ? (
+          this.renderBigMovie()
+        ) : (
+          this.renderLoading()
+        )}
+      </>
+    );
+  }
+}
 
 export default MovieModal;
