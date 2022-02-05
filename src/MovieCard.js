@@ -18,7 +18,7 @@ const MovieCard = ({
         <div className="bottom-info">
           <div className="rating">
             <h3>Rating:</h3>
-            <h3>{average_rating.toFixed(1)} </h3>
+            <h3>{average_rating} </h3>
           </div>
           <div className="release-date">
             <h3>Release:</h3>

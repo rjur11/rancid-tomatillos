@@ -1,7 +1,7 @@
 .movie-modal-preview-card {
   padding: 0px;
   background-color: #000;
-  color: #FFF;
+  color: #fff;
   border-radius: 5px;
 }
 
@@ -30,4 +30,9 @@
 h2[movie-modal-information] {
   margin: 0px;
   padding: 20px;
+}
+
+.tomatillo,
+.empty-tomatillo {
+  max-height: 18px;
 }

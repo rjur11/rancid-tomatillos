@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./MovieModal.css";
 import { getSingleMovie } from "./apiCalls";
+import tomatillo from "./blackfilled.png";
+import emptyTomatillo from "./whiteclear.png";
 
 class MovieModal extends Component {
   constructor({ movie }) {
@@ -20,6 +22,18 @@ class MovieModal extends Component {
       })
       .catch((error) => this.setState({ error: true }));
   }
+
+  renderTomatillos = (rating) => {
+    return [...Array(rating)].map((e, i) => (
+      <img src={tomatillo} className="tomatillo" />
+    ));
+  };
+
+  renderEmptyTomatillos = (rating) => {
+    return [...Array(5 - rating)].map((e, i) => (
+      <img src={emptyTomatillo} className="empty-tomatillo" />
+    ));
+  };
 
   renderLoading() {
     return (
@@ -55,7 +69,15 @@ class MovieModal extends Component {
             </h3>
           </div>
           <div className="right-side">
-            <h3>Rating: {this.state.movie.average_rating.toFixed(1)} </h3>
+            <h3>
+              Rating:{" "}
+              {this.renderTomatillos(
+                parseInt(Math.ceil(this.state.movie.average_rating / 2))
+              )}
+              {this.renderEmptyTomatillos(
+                parseInt(Math.ceil(this.state.movie.average_rating / 2))
+              )}{" "}
+            </h3>
             <h3>
               Genre:{" "}
               {this.state.fullMovie.genres.name
