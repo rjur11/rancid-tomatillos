@@ -6,6 +6,7 @@ import MovieContainer from "./MovieContainer";
 import Modal from "react-modal";
 import MovieModal from "./MovieModal";
 import { getAllMovies } from "./apiCalls";
+import RatingDisplay from "./RatingDisplay";
 Modal.setAppElement("#root");
 
 class App extends Component {

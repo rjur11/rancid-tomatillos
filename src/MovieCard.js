@@ -1,5 +1,6 @@
 import React from "react";
 import "./MovieCard.css";
+import RatingDisplay from "./RatingDisplay";
 
 const MovieCard = ({
   onClick,
@@ -18,7 +19,10 @@ const MovieCard = ({
         <div className="bottom-info">
           <div className="rating">
             <h3>Rating:</h3>
-            <h3>{average_rating} </h3>
+            <RatingDisplay
+              className="tomatillo-ratings"
+              rating={average_rating}
+            />
           </div>
           <div className="release-date">
             <h3>Release:</h3>
