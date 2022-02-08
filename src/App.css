@@ -6,6 +6,10 @@ body {
   background-color: rgb(69, 69, 69);
 }
 
+a:link {
+  text-decoration: none;
+}
+
 .Modal {
   position: absolute;
   top: 40px;
