@@ -12,8 +12,6 @@
 
 .movie-modal-card-image {
   width: 70%;
-  /* max-height: 200px; */
-  /* object-fit: cover; */
   background-color: #fff;
   padding: 0px;
   margin: 20px;
@@ -54,9 +52,11 @@ h2[movie-modal-information] {
   padding: 20px;
 }
 
-/* h1 {
-  color: limegreen;
-} */
+.modal-failed-to-load-error {
+  color: #FFF;
+  padding: 30px;
+  border-radius: 5px;
+}
 
 @media screen and (min-device-width: 0px) and (max-device-width: 800px) {
   .left-side,

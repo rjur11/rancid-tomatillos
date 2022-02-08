@@ -19,7 +19,7 @@ const MovieCard = ({
         <div className="movie-preview-card-info">
           <div className="bottom-info">
             <div className="rating">
-              <h3>Rating:</h3>
+              <h3 className="rating-text">Rating:</h3>
               <RatingDisplay
                 className="tomatillo-ratings"
                 rating={average_rating}
@@ -27,7 +27,7 @@ const MovieCard = ({
             </div>
             <div className="release-date">
               <h3 className="release-date-value">Release:</h3>
-              <h3>{release_date.substring(0, 4)}</h3>
+              <h3 className="release-date-year">{release_date.substring(0, 4)}</h3>
             </div>
           </div>
         </div>

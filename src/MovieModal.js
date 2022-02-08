@@ -85,7 +85,9 @@ class MovieModal extends Component {
     return (
       <>
         {this.state.error || !this.state.movie ? (
-          <h1>Movies failed to load. Please contact Comcast.</h1>
+          <div className="modal-failed-to-load-error">
+            <h1>Movie data failed to load. Please contact Comcast.</h1>
+          </div>
         ) : this.state.fullMovie !== null ? (
           this.renderBigMovie()
         ) : (
