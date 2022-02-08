@@ -1,27 +1,49 @@
 describe("Load homepage and render the Navigation Bar elements", () => {
-  // it('Should be able to visit the page and render the correct elements', () => {
-  //   cy.visit('http://localhost:3000')
-  //   .contains('h1', 'RancidTomatillos');
-  // });
-  // it('Should render the search bar', () => {
-  //   cy.get('input[type="text-box"]')
-  //     .type('Mulan')
-  //     .should('have.value', 'Mulan')
-  //   });
-  // it('Should render movie images', () => {
-  //   cy.get('img[alt="Money Plane"]')
-  //     .should('be.visible')
-  //   });
-  // it('Should render movie ratings', () => {
-  //   cy.get('div.rating')
-  //     .find("img")
-  //     .should('be.visible')
-  //   });
-  // it('Should render movie year', () => {
-  //   cy.get('h3.release-date-value')
-  //     .should('be.visible')
-  //   });
+  it('Should be able to visit the modal page and render the correct elements', () => {
+    cy.visit('http://localhost:3000/694919')
+    .contains('h2', 'Money Plane');
+  });
+  it('Should render a movie image', () => {
+    cy.get('img[alt="Money Plane"]')
+      .should('be.visible')
+    });
+  it('Should render movie runtime value', () => {
+    cy.visit('http://localhost:3000/694919')
+    .contains('h3.runtime-value', '82 minutes');
+  });
+  it('Should render movie release date year value', () => {
+    cy.visit('http://localhost:3000/694919')
+    .contains('h3.release-date-value', '2020');
+  });
+  it('Should render movie description', () => {
+    cy.visit('http://localhost:3000/694919')
+    .contains('h3.description-value', "Description: A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.");
+  });
+  it('Should render movie ratings', () => {
+    cy.get('div.rating')
+      .find("img")
+      .should('be.visible')
+    });
+  it('Should render movie genres', () => {
+    cy.visit('http://localhost:3000/694919')
+    .contains('h3.genre-value', "Genre: Information not available");
+  });
+  it('Should should show an exit button', () => {
+    cy.visit('http://localhost:3000/694919')
+    cy.get('a.exit-modal')
+      .should('be.visible')
+  });
+  it('Should go back to homepage when exit button is clicked', () => {
+    cy.get('a.exit-modal')
+      .click()
+      .url()
+      .should('eq', 'http://localhost:3000/')
+  });
+
 });
+
+// className="exit-modal" ///check original test, project board
+
 
 // it('should be able to fill out the email and password and click Submit, directing the user to a different page', () => {
 //   cy.intercept('POST', 'http://localhost:3001/api/v1/login', {

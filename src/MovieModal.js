@@ -43,14 +43,14 @@ class MovieModal extends Component {
         <h2 className="movie-modal-title">{this.state.movie.title}</h2>
         <div className="movie-modal-information">
           <div className="left-side">
-            <h3>
+            <h3 className="runtime-value">
               Runtime:{" "}
               {this.state.fullMovie.runtime
                 ? `${this.state.fullMovie.runtime} minutes`
                 : "Information not available"}
             </h3>
-            <h3>Release: {this.state.movie.release_date.substring(0, 4)}</h3>
-            <h3>
+            <h3 className="release-date-value">Release: {this.state.movie.release_date.substring(0, 4)}</h3>
+            <h3 className="description-value">
               Description:{" "}
               {this.state.fullMovie.overview
                 ? this.state.fullMovie.overview
@@ -66,7 +66,7 @@ class MovieModal extends Component {
                 )}
               />{" "}
             </h3>
-            <h3>
+            <h3 className="genre-value">
               Genre:{" "}
               {this.state.fullMovie.genres.name
                 ? this.state.fullMovie.genres.join(", ")
