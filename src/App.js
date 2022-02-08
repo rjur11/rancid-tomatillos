@@ -7,6 +7,7 @@ import Modal from "react-modal";
 import MovieModal from "./MovieModal";
 import { getAllMovies } from "./apiCalls";
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
 
 Modal.setAppElement("#root");
 
@@ -17,6 +18,7 @@ class App extends Component {
       movies: [],
       selectedMovie: null,
       error: false,
+      isLoading: true,
     };
   }
 
@@ -24,6 +26,7 @@ class App extends Component {
     const apiMovieData = getAllMovies()
       .then(({ movies }) => this.setState({ movies }))
       .catch(() => this.setState({ error: true }));
+    this.setState({ isLoading: false });
   };
 
   unselectMovie = () => {
@@ -41,7 +44,20 @@ class App extends Component {
         {this.state.error ? (
           <h1>Movies failed to load. Please contact Comcast.</h1>
         ) : (
-          <main>
+          <main className="main">
+            {this.state.isLoading ? (
+              <div className="loader-container">
+                <Loader />
+              </div>
+            ) : (
+              <MovieContainer
+                movieArray={this.state.movies}
+                movieClicked={(movie) =>
+                  this.setState({ selectedMovie: movie })
+                }
+              />
+            )}
+
             <Modal
               className="Modal"
               overlayClassName="Overlay"
@@ -58,10 +74,10 @@ class App extends Component {
                 ✕
               </Link>
             </Modal>
-            <MovieContainer
+            {/* <MovieContainer
               movieArray={this.state.movies}
               movieClicked={(movie) => this.setState({ selectedMovie: movie })}
-            />
+            /> */}
           </main>
         )}
       </div>
