@@ -35,12 +35,15 @@ class MovieModal extends Component {
   renderBigMovie() {
     return (
       <section className="movie-modal-preview-card">
-        <img
-          className="movie-modal-card-image"
-          src={this.state.movie.backdrop_path}
-          alt={this.state.movie.title}
-        />
         <h2 className="movie-modal-title">{this.state.movie.title}</h2>
+
+        <div className="movie-modal-card-image-container">
+          <img
+            className="movie-modal-card-image"
+            src={this.state.movie.backdrop_path}
+            alt={this.state.movie.title}
+          />
+        </div>
         <div className="movie-modal-information">
           <div className="left-side">
             <h3 className="runtime-value">
