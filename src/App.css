@@ -6,12 +6,16 @@ body {
   background-color: rgb(69, 69, 69);
 }
 
+a:link {
+  text-decoration: none;
+}
+
 .Modal {
   position: absolute;
   top: 40px;
   left: 40px;
   right: 40px;
-  bottom: 40px;
+  bottom: auto;
   background-color: rgb(0, 0, 0);
   border: 0px solid black;
   border-radius: 5px;
@@ -28,8 +32,8 @@ body {
 
 .exit-modal {
   position: absolute;
-  top: 20px;
-  right: 40px;
+  top: 2%;
+  right: 3%;
   background-color: #0008;
   border-radius: 5px;
   border: 0px solid black;

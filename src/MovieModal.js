@@ -35,26 +35,29 @@ class MovieModal extends Component {
   renderBigMovie() {
     return (
       <section className="movie-modal-preview-card">
-        <img
-          className="movie-modal-card-image"
-          src={this.state.movie.backdrop_path}
-          alt={this.state.movie.title}
-        />
         <h2 className="movie-modal-title">{this.state.movie.title}</h2>
+
+        <div className="movie-modal-card-image-container">
+          <img
+            className="movie-modal-card-image"
+            src={this.state.movie.backdrop_path}
+            alt={this.state.movie.title}
+          />
+        </div>
         <div className="movie-modal-information">
           <div className="left-side">
             <h3 className="runtime-value">
-              Runtime:{" "}
+              Runtime:{" "}<span className="section-info">
               {this.state.fullMovie.runtime
                 ? `${this.state.fullMovie.runtime} minutes`
-                : "Information not available"}
+                : "Information not available"}</span>
             </h3>
-            <h3 className="release-date-value">Release: {this.state.movie.release_date.substring(0, 4)}</h3>
+            <h3 className="release-date-value">Release: <span className="section-info">{this.state.movie.release_date.substring(0, 4)}</span></h3>
             <h3 className="description-value">
-              Description:{" "}
+              Description:{" "}<span className="section-info">
               {this.state.fullMovie.overview
                 ? this.state.fullMovie.overview
-                : "Information not available"}
+                : "Information not available"}</span>
             </h3>
           </div>
           <div className="right-side">
@@ -67,10 +70,10 @@ class MovieModal extends Component {
               />{" "}
             </h3>
             <h3 className="genre-value">
-              Genre:{" "}
+              Genre:{" "}<span className="section-info">
               {this.state.fullMovie.genres.name
                 ? this.state.fullMovie.genres.join(", ")
-                : "Information not available"}
+                : "Information not available"}</span>
             </h3>
           </div>
         </div>
@@ -82,7 +85,9 @@ class MovieModal extends Component {
     return (
       <>
         {this.state.error || !this.state.movie ? (
-          <h1>Movies failed to load. Please contact Comcast.</h1>
+          <div className="modal-failed-to-load-error">
+            <h1>Movie data failed to load. Please contact Comcast.</h1>
+          </div>
         ) : this.state.fullMovie !== null ? (
           this.renderBigMovie()
         ) : (

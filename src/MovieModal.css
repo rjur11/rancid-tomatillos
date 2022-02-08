@@ -1,29 +1,49 @@
 .movie-modal-preview-card {
-  padding: 0px;
+  padding: 20px;
   background-color: #000;
   color: #fff;
   border-radius: 5px;
 }
 
+.movie-modal-card-image-container {
+  display: flex;
+  justify-content: center;
+}
+
 .movie-modal-card-image {
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
+  width: 70%;
   background-color: #fff;
   padding: 0px;
-  margin: 0px;
+  margin: 20px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+
+.movie-modal-title {
+  font-size: 30px;
+  margin: 0px;
+  padding: 0px 10px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.section-info {
+  font-weight: 300;
+  font-size: 20px;
 }
 
 .movie-modal-information {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
 }
 
 .left-side,
 .right-side {
+  width: 40%;
   padding: 20px;
 }
 
@@ -32,6 +52,19 @@ h2[movie-modal-information] {
   padding: 20px;
 }
 
-/* h1 {
-  color: limegreen;
-} */
+.modal-failed-to-load-error {
+  color: #FFF;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+@media screen and (min-device-width: 0px) and (max-device-width: 800px) {
+  .left-side,
+  .right-side {
+    width: auto;
+  }
+}
+
+
+
+
