@@ -13,6 +13,7 @@
   font-weight: 900;
   font-size: 40px;
   padding: 20px;
+  margin: 0px;
 }
 
 .green {
@@ -26,7 +27,7 @@
 
 .text-box {
   background-color: #454545;
-  color: #FFF;
+  color: #fff;
   border-radius: 5px 0px 0px 5px;
   border: 2px solid #96e6b3;
   height: 20px;
@@ -38,7 +39,7 @@
   border-radius: 0px 5px 5px 0px;
   border: 2px solid #96e6b3;
   height: 26px;
-  cursor:pointer;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -49,11 +50,9 @@
   filter: invert(1);
 }
 
-@media screen
-  and (min-device-width: 0px)
-  and (max-device-width: 610px) {
-    .navigation-bar {
-      justify-content: center;
+@media screen and (min-device-width: 0px) and (max-device-width: 610px) {
+  .navigation-bar {
+    justify-content: center;
   }
   .search-bar {
     padding-top: 0px;
