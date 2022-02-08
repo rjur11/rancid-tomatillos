@@ -26,7 +26,7 @@ const MovieCard = ({
               />
             </div>
             <div className="release-date">
-              <h3>Release:</h3>
+              <h3 className="release-date-value">Release:</h3>
               <h3>{release_date.substring(0, 4)}</h3>
             </div>
           </div>

@@ -16,6 +16,35 @@ describe("Load homepage and render the Navigation Bar elements", () => {
   it("Should render movie year", () => {
     cy.get("h3.release-date-value").should("be.visible");
   });
+  it('Should go to movie modal view when movie button is clicked', () => {
+    cy.get('img[alt="Money Plane"')
+      .click()
+      .url()
+      .should('eq', 'http://localhost:3000/694919')
+  });
+  it('Should be able to click the back button in the browser to go home', () => {
+    cy.visit("http://localhost:3000")
+      .get('img[alt="Money Plane"')
+      .click()
+      .url()
+      .should('eq', 'http://localhost:3000/694919')
+      .go('back')
+      .url()
+      .should('eq', 'http://localhost:3000/')
+  });
+  it('Should be able to click the forward button in the browser to go home', () => {
+    cy.visit("http://localhost:3000")
+      .get('img[alt="Money Plane"')
+      .click()
+      .url()
+      .should('eq', 'http://localhost:3000/694919')
+      .go('back')
+      .url()
+      .should('eq', 'http://localhost:3000/')
+      .go('forward')
+      .url()
+      .should('eq', 'http://localhost:3000/694919')
+  });
 });
 
 // TEST SAD PATH EMPTY SEARCH BAR/MAKE ERROR MESSAGE
