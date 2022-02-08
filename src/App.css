@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  background-color: rgb(69, 69, 69);
+}
+
 .Modal {
   position: absolute;
   top: 40px;
@@ -31,9 +35,9 @@
   border: 0px solid black;
   cursor: pointer;
   opacity: 50%;
-  color: #FFF;
+  color: #fff;
   font-size: 30px;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .exit-modal:hover {
@@ -41,5 +45,13 @@
   filter: brightness(1.25);
 }
 
+.loader-container {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-
+.hidden {
+  display: none;
+}
