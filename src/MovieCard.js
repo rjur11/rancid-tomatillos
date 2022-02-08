@@ -1,6 +1,7 @@
 import React from "react";
 import "./MovieCard.css";
 import RatingDisplay from "./RatingDisplay";
+import { Link } from "react-router-dom";
 
 const MovieCard = ({
   onClick,
@@ -12,24 +13,26 @@ const MovieCard = ({
   release_date,
 }) => {
   return (
-    <section className="movie-preview-card" onClick={onClick}>
-      <img className="movie-card-image" src={poster_path} alt={title} />
-      <div className="movie-preview-card-info">
-        <div className="bottom-info">
-          <div className="rating">
-            <h3>Rating:</h3>
-            <RatingDisplay
-              className="tomatillo-ratings"
-              rating={average_rating}
-            />
-          </div>
-          <div className="release-date">
-            <h3>Release:</h3>
-            <h3>{release_date.substring(0, 4)}</h3>
+    <Link to={`/${id}`}>
+      <section className="movie-preview-card">
+        <img className="movie-card-image" src={poster_path} alt={title} />
+        <div className="movie-preview-card-info">
+          <div className="bottom-info">
+            <div className="rating">
+              <h3>Rating:</h3>
+              <RatingDisplay
+                className="tomatillo-ratings"
+                rating={average_rating}
+              />
+            </div>
+            <div className="release-date">
+              <h3>Release:</h3>
+              <h3>{release_date.substring(0, 4)}</h3>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Link>
   );
 };
 

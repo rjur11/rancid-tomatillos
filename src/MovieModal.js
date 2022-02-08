@@ -14,9 +14,11 @@ class MovieModal extends Component {
   }
 
   componentDidMount() {
+    if (!this.state.movie) {
+      return;
+    }
     getSingleMovie(this.state.movie.id)
       .then(({ movie }) => {
-        console.log(movie);
         this.setState({ fullMovie: movie });
       })
       .catch((error) => this.setState({ error: true }));
@@ -79,7 +81,7 @@ class MovieModal extends Component {
   render() {
     return (
       <>
-        {this.state.error ? (
+        {this.state.error || !this.state.movie ? (
           <h1>Movies failed to load. Please contact Comcast.</h1>
         ) : this.state.fullMovie !== null ? (
           this.renderBigMovie()

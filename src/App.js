@@ -6,6 +6,7 @@ import MovieContainer from "./MovieContainer";
 import Modal from "react-modal";
 import MovieModal from "./MovieModal";
 import { getAllMovies } from "./apiCalls";
+import { Link } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
@@ -30,6 +31,10 @@ class App extends Component {
   };
 
   render() {
+    const movie = this.state.movies.find(
+      (movie) => `${movie.id}` === this.props.match.params.movieId
+    );
+    console.log(movie);
     return (
       <div className="App">
         <NavBar />
@@ -40,23 +45,22 @@ class App extends Component {
             <Modal
               className="Modal"
               overlayClassName="Overlay"
-              isOpen={this.state.selectedMovie !== null}
+              isOpen={this.props.match.params.movieId !== undefined}
               onRequestClose={this.unselectMovie}
             >
-              {this.state.selectedMovie !== null ? (
-                <MovieModal movie={this.state.selectedMovie} />
+              {this.props.match.params.movieId &&
+              this.state.movies.length > 0 ? (
+                <MovieModal movie={movie} />
               ) : (
                 false
               )}
-              <button className="exit-modal" onClick={this.unselectMovie}>
+              <Link className="exit-modal" to="/">
                 ✕
-              </button>
+              </Link>
             </Modal>
             <MovieContainer
               movieArray={this.state.movies}
-              movieClicked={(movie) =>
-                this.setState({ ...this.state, selectedMovie: movie })
-              }
+              movieClicked={(movie) => this.setState({ selectedMovie: movie })}
             />
           </main>
         )}
