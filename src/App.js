@@ -24,9 +24,8 @@ class App extends Component {
 
   componentDidMount = () => {
     const apiMovieData = getAllMovies()
-      .then(({ movies }) => this.setState({ movies }))
+      .then(({ movies }) => this.setState({ movies, isLoading: false }))
       .catch(() => this.setState({ error: true }));
-    this.setState({ isLoading: false });
   };
 
   unselectMovie = () => {
@@ -74,10 +73,6 @@ class App extends Component {
                 ✕
               </Link>
             </Modal>
-            {/* <MovieContainer
-              movieArray={this.state.movies}
-              movieClicked={(movie) => this.setState({ selectedMovie: movie })}
-            /> */}
           </main>
         )}
       </div>
