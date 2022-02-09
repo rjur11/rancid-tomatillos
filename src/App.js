@@ -19,6 +19,7 @@ class App extends Component {
       selectedMovie: null,
       error: false,
       isLoading: true,
+      searchedText: "",
     };
   }
 
@@ -32,6 +33,15 @@ class App extends Component {
     this.setState({ ...this.state, selectedMovie: null });
   };
 
+  getSearchedMovies = () => {
+    if (this.state.searchedText === "") {
+      return this.state.movies;
+    }
+    return this.state.movies.filter((movie) =>
+      movie.title.toLowerCase().includes(this.state.searchedText.toLowerCase())
+    );
+  };
+
   render() {
     const movie = this.state.movies.find(
       (movie) => `${movie.id}` === this.props.match.params.movieId
@@ -39,7 +49,11 @@ class App extends Component {
     console.log(movie);
     return (
       <div className="App">
-        <NavBar />
+        <NavBar
+          onChange={(event) =>
+            this.setState({ searchedText: event.target.value })
+          }
+        />
         {this.state.error ? (
           <h1>Movies failed to load. Please contact Comcast.</h1>
         ) : (
@@ -50,7 +64,7 @@ class App extends Component {
               </div>
             ) : (
               <MovieContainer
-                movieArray={this.state.movies}
+                movieArray={this.getSearchedMovies()}
                 movieClicked={(movie) =>
                   this.setState({ selectedMovie: movie })
                 }
