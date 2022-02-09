@@ -20,6 +20,10 @@
   color: #96e6b3;
 }
 
+label {
+  display: none;
+}
+
 .search-bar {
   padding: 20px;
   display: flex;

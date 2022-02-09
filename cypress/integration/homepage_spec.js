@@ -14,7 +14,7 @@ describe("Load homepage and render the Navigation Bar elements", () => {
     cy.get("div.rating").find("img").should("be.visible");
   });
   it("Should render movie year", () => {
-    cy.get("h3.release-date-value").should("be.visible");
+    cy.get("h2.release-date-value").should("be.visible");
   });
   it('Should go to movie modal view when movie button is clicked', () => {
     cy.get('img[alt="Money Plane"')
