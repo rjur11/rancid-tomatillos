@@ -16,12 +16,12 @@
 }
 
 .movie-modal-card-image {
-  width: 70%;
+  height: 400px;
+  object-fit: cover;
   background-color: #fff;
   padding: 0px;
   margin: 20px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 5px;
 }
 
 .movie-modal-title {
@@ -37,6 +37,7 @@ h3 {
 .section-info {
   font-weight: 300;
   font-size: 20px;
+  line-height: 1.3;
 }
 
 .movie-modal-information {
@@ -45,14 +46,9 @@ h3 {
   justify-content: space-between;
 }
 
-.left-side,
-.right-side {
+.runtime-release-description-information,
+.rating-genre-information {
   width: 40%;
-  padding: 20px;
-}
-
-h2[movie-modal-information] {
-  margin: 0px;
   padding: 20px;
 }
 
@@ -63,8 +59,22 @@ h2[movie-modal-information] {
 }
 
 @media screen and (min-device-width: 0px) and (max-device-width: 800px) {
-  .left-side,
-  .right-side {
+  .runtime-release-description-information,
+  .rating-genre-information {
     width: auto;
+  }
+  .movie-modal-card-image {
+    height: 150px;
+    margin: 0px;
+  }
+  .video-trailer {
+    max-height: 150px;
+  }
+  h3 {
+    font-size: 15px;
+  }
+  .section-info {
+    font-weight: 300;
+    font-size: 15px;
   }
 }

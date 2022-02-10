@@ -26,7 +26,7 @@ class MovieModal extends Component {
       .catch((error) => this.setState({ error: true }));
     getSingleMovieVideo(this.state.movie.id)
       .then((result) => this.setState({ videoKey: result.videos[0].key }))
-      .catch((error) => this.setState({ error: true }));
+      .catch((error) => this.setState({ videoKey: "" }));
   }
 
   renderLoading() {
@@ -42,17 +42,19 @@ class MovieModal extends Component {
       <section className="movie-modal-preview-card">
         <h2 className="movie-modal-title">{this.state.movie.title}</h2>
         <div className="media-player">
-          <ReactPlayer
-            url={`https://www.youtube.com/embed/${this.state.videoKey}`}
-            className="video-trailer"
-            controls={true}
-            playing={true}
-            light={this.state.movie.backdrop_path}
-          />
+          {this.state.videoKey === "" ?
+            <img className="movie-modal-card-image" src={this.state.movie.backdrop_path} alt={this.state.movie.title} /> :
+            <ReactPlayer
+              url={`https://www.youtube.com/embed/${this.state.videoKey}`}
+              className="video-trailer"
+              controls={true}
+              playing={true}
+              light={this.state.movie.backdrop_path}
+            />
+          }
         </div>
-
         <div className="movie-modal-information">
-          <div className="left-side">
+          <div className="runtime-release-description-information">
             <h3 className="runtime-value">
               Runtime:{" "}
               <span className="section-info">
@@ -61,7 +63,7 @@ class MovieModal extends Component {
                   : "Information not available"}
               </span>
             </h3>
-            <h3 className="release-date-value">
+            <h3 className="modal-release-date-value">
               Release:{" "}
               <span className="section-info">
                 {this.state.movie.release_date.substring(0, 4)}
@@ -76,7 +78,7 @@ class MovieModal extends Component {
               </span>
             </h3>
           </div>
-          <div className="right-side">
+          <div className="rating-genre-information">
             <h3>
               Rating:{" "}
               <RatingDisplay
