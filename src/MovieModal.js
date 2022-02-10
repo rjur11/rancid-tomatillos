@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./MovieModal.css";
 import { getSingleMovie, getSingleMovieVideo } from "./apiCalls";
 import RatingDisplay from "./RatingDisplay";
+import ReactPlayer from "react-player";
 
 class MovieModal extends Component {
   constructor({ movie }) {
@@ -24,7 +25,7 @@ class MovieModal extends Component {
       })
       .catch((error) => this.setState({ error: true }));
     getSingleMovieVideo(this.state.movie.id)
-      .then(result => this.setState( {videoKey: result.videos[0].key} ))
+      .then((result) => this.setState({ videoKey: result.videos[0].key }))
       .catch((error) => this.setState({ error: true }));
   }
 
@@ -40,31 +41,39 @@ class MovieModal extends Component {
     return (
       <section className="movie-modal-preview-card">
         <h2 className="movie-modal-title">{this.state.movie.title}</h2>
-        {/* <iframe src='https://www.youtube.com/embed/aETz_dRDEys' width="600" height="300" controls="controls" /> */}
         <div className="media-player">
-          <iframe src={`https://www.youtube.com/embed/${this.state.videoKey}`} className="video-trailer" controls="controls" />
-        </div>
-        <div className="movie-modal-card-image-container">
-          <img
-            className="movie-modal-card-image"
-            src={this.state.movie.backdrop_path}
-            alt={this.state.movie.title}
+          <ReactPlayer
+            url={`https://www.youtube.com/embed/${this.state.videoKey}`}
+            className="video-trailer"
+            controls={true}
+            playing={true}
+            light={this.state.movie.backdrop_path}
           />
         </div>
+
         <div className="movie-modal-information">
           <div className="left-side">
             <h3 className="runtime-value">
-              Runtime:{" "}<span className="section-info">
-              {this.state.fullMovie.runtime
-                ? `${this.state.fullMovie.runtime} minutes`
-                : "Information not available"}</span>
+              Runtime:{" "}
+              <span className="section-info">
+                {this.state.fullMovie.runtime
+                  ? `${this.state.fullMovie.runtime} minutes`
+                  : "Information not available"}
+              </span>
             </h3>
-            <h3 className="release-date-value">Release: <span className="section-info">{this.state.movie.release_date.substring(0, 4)}</span></h3>
+            <h3 className="release-date-value">
+              Release:{" "}
+              <span className="section-info">
+                {this.state.movie.release_date.substring(0, 4)}
+              </span>
+            </h3>
             <h3 className="description-value">
-              Description:{" "}<span className="section-info">
-              {this.state.fullMovie.overview
-                ? this.state.fullMovie.overview
-                : "Information not available"}</span>
+              Description:{" "}
+              <span className="section-info">
+                {this.state.fullMovie.overview
+                  ? this.state.fullMovie.overview
+                  : "Information not available"}
+              </span>
             </h3>
           </div>
           <div className="right-side">
@@ -77,10 +86,12 @@ class MovieModal extends Component {
               />{" "}
             </h3>
             <h3 className="genre-value">
-              Genre:{" "}<span className="section-info">
-              {this.state.fullMovie.genres.name
-                ? this.state.fullMovie.genres.join(", ")
-                : "Information not available"}</span>
+              Genre:{" "}
+              <span className="section-info">
+                {this.state.fullMovie.genres
+                  ? this.state.fullMovie.genres.join(", ")
+                  : "Information not available"}
+              </span>
             </h3>
           </div>
         </div>
