@@ -46,7 +46,6 @@ class App extends Component {
     const movie = this.state.movies.find(
       (movie) => `${movie.id}` === this.props.match.params.movieId
     );
-    console.log(movie);
     return (
       <div className="App">
         <NavBar

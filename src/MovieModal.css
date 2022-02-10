@@ -10,6 +10,22 @@
   justify-content: center;
 }
 
+.media-player {
+
+  width: 100%;
+  height: 56.25%;
+}
+
+.video-trailer {
+  display:block;
+  margin: auto;
+  max-height: 600px;
+  max-width: 56.25%;
+  top: 80px;
+  width: 90%;
+  height: 90%;
+}
+
 .movie-modal-card-image {
   width: 70%;
   background-color: #fff;
@@ -21,7 +37,7 @@
 
 .movie-modal-title {
   font-size: 30px;
-  margin: 0px;
+  margin: 0px 0px 20px 0px;
   padding: 0px 10px;
 }
 
