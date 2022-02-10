@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./MovieModal.css";
-import { getSingleMovie } from "./apiCalls";
+import { getSingleMovie, getSingleMovieVideo } from "./apiCalls";
 import RatingDisplay from "./RatingDisplay";
 
 class MovieModal extends Component {
@@ -10,6 +10,7 @@ class MovieModal extends Component {
       movie: movie,
       fullMovie: null,
       error: false,
+      videoKey: "",
     };
   }
 
@@ -21,6 +22,9 @@ class MovieModal extends Component {
       .then(({ movie }) => {
         this.setState({ fullMovie: movie });
       })
+      .catch((error) => this.setState({ error: true }));
+    getSingleMovieVideo(this.state.movie.id)
+      .then(result => this.setState( {videoKey: result.videos[0].key} ))
       .catch((error) => this.setState({ error: true }));
   }
 
@@ -36,7 +40,10 @@ class MovieModal extends Component {
     return (
       <section className="movie-modal-preview-card">
         <h2 className="movie-modal-title">{this.state.movie.title}</h2>
-
+        {/* <iframe src='https://www.youtube.com/embed/aETz_dRDEys' width="600" height="300" controls="controls" /> */}
+        <div className="media-player">
+          <iframe src={`https://www.youtube.com/embed/${this.state.videoKey}`} className="video-trailer" controls="controls" />
+        </div>
         <div className="movie-modal-card-image-container">
           <img
             className="movie-modal-card-image"
