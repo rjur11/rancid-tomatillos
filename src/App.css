@@ -32,8 +32,8 @@ a:link {
 
 .exit-modal {
   position: absolute;
-  top: 2%;
-  right: 3%;
+  top: 8px;
+  right: 20px;
   background-color: #0008;
   border-radius: 5px;
   border: 0px solid black;
@@ -46,7 +46,7 @@ a:link {
 
 .exit-modal:hover {
   transform: scale(1.1);
-  filter: brightness(1.25);
+  opacity: 70%;
 }
 
 .loader-container {
