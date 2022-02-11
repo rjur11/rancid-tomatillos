@@ -2,11 +2,11 @@ import React from "react";
 import "./MovieContainer.css";
 import MovieCard from "./MovieCard";
 
-const MovieContainer = ({ movieArray, movieClicked }) => {
+const MovieContainer = ({ loadedMovies, movieClicked }) => {
   return (
     <div className="movie-container">
-      {movieArray.length > 0 ? (
-        movieArray.map((movie) => {
+      {loadedMovies.length > 0 ? (
+        loadedMovies.map((movie) => {
           return (
             <MovieCard
               onClick={() => movieClicked(movie)}

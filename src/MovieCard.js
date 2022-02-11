@@ -4,10 +4,8 @@ import RatingDisplay from "./RatingDisplay";
 import { Link } from "react-router-dom";
 
 const MovieCard = ({
-  onClick,
   id,
   poster_path,
-  backdrop_path,
   title,
   average_rating,
   release_date,
@@ -27,7 +25,9 @@ const MovieCard = ({
             </div>
             <div className="release-date">
               <h2 className="release-date-value">Release:</h2>
-              <h3 className="release-date-year">{release_date.substring(0, 4)}</h3>
+              <h3 className="release-date-year">
+                {release_date.substring(0, 4)}
+              </h3>
             </div>
           </div>
         </div>

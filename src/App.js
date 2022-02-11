@@ -30,7 +30,7 @@ class App extends Component {
   };
 
   unselectMovie = () => {
-    this.setState({ ...this.state, selectedMovie: null });
+    this.setState({ selectedMovie: null });
   };
 
   getSearchedMovies = () => {
@@ -63,7 +63,7 @@ class App extends Component {
               </div>
             ) : (
               <MovieContainer
-                movieArray={this.getSearchedMovies()}
+                loadedMovies={this.getSearchedMovies()}
                 movieClicked={(movie) =>
                   this.setState({ selectedMovie: movie })
                 }
