@@ -20,6 +20,10 @@ a:link {
   border: 0px solid black;
   border-radius: 5px;
 }
+.Modal:focus {
+  outline: none;
+  border-color: #000000;
+}
 
 .Overlay {
   position: fixed;

@@ -6,7 +6,6 @@
   align-items: center;
   flex-wrap: wrap;
   border-bottom: 5px solid #96e6b3;
-  /* box-shadow: 100px 100px 100px red; */
 }
 
 .logo {
@@ -17,7 +16,9 @@
 }
 
 .green {
-  color: #96e6b3;
+  background: -webkit-linear-gradient(#c7f7d8, rgb(28, 124, 84));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 label {
