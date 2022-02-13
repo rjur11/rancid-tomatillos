@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Rancid Tomatillos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Click [HERE](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html) to view the project spec
+- Click [HERE] to view the deployed site
 
-## Available Scripts
+## Table of Contents
+- [Abstract](#abstract)
+- [Tech Used](#tech-used)
+- [Installation and Set-Up](#installation-and-set-up)
+- [Features](#features)
+- [See the Site in Action](#see-the-site-in-action)
+- [Future Goals](#future-goals)
+- [Created By](#created-by)
 
-In the project directory, you can run:
+## Abstract
 
-### `npm start`
+*This project is definitely not Rotten Tomatoes.*
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Have you been searching for a movie review website that can do it all? Look no further than Rancid Tomatillos! The homepage welcomes users to scroll through an extensive list of movies, populated thanks to a network request to a movie data API. At a glance, each movie on the homepage features that movie's poster, a tomatillo rating, and year of release. When a user clicks on a specific movie card, they are brought to a more indepth view of that movie's details. The modal that pops up provides a user with that movie's trailer (or still image if no trailer is available), the full runtime, release year, description, rating, and genre(s) of said movie. If a user knows a specific movie they want to search for, they can type their query into the search bar provided. If no movie can be found with that title, the user is kindly asked to search for another title. Thanks to React Router implementation, a user can easily navigate the site and obtain urls specific to the page they are on. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Tech Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React 
+- JSX
+- Cypress Testing
+- React Router
+- Movie Data API used for Network Requests (https://rancid-tomatillos.herokuapp.com/api/v2)
+- Project Structure Organized with [GitHub Project Board](https://github.com/rjur11/rancid-tomatillos/projects/1)
 
-### `npm run build`
+## Installation and Set-Up
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To install this project, please see below:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+1. Clone down this Repository using `git clone`
+2. Next, `cd` into the cloned repository and `npm install` to install library dependancies
+3. Finally, run `npm start` and open up localhost at the port indicated to view the webpage
+```
+Alternatively, you can access the deployed site here: TBD
+    
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Extensive list of movies on homepage
+- "At-a-glance" view and detailed view for each movie
+  - "At-a-glance" view is default on homepage (provides user with rating and release year)
+  - Detailed view is accessed by clicking on a specific movie card. A modal will pop up with access to that movie's trailer (or still image), runtime, release year, description, rating, and genre(s)
+- Search bar provided to narrow down full movie list
+- 100% lighthouse accessbility rating
+- Mobile and Computer friendly responsive design
+- Deployed website
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## See the Site in Action! 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Future Goals
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Created By:
 
-### Code Splitting
+- [Rana Jurjus](https://github.com/rjur11)
+- [Tony Carpenter](https://github.com/tonycarpenter21)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
