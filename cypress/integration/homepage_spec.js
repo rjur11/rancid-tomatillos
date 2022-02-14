@@ -1,6 +1,15 @@
 describe("Load homepage and render the Navigation Bar elements", () => {
+  beforeEach( () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      statusCode: 201,
+      body: {"movies":[
+        {"id":694919,"poster_path":"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg","backdrop_path":"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg","title":"Money Plane","average_rating":6.625,"release_date":"2020-09-29"},
+        {"id":337401,"poster_path":"https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg","backdrop_path":"https://image.tmdb.org/t/p/original//zzWGRw277MNoCs3zhyG3YmYQsXv.jpg","title":"Mulan","average_rating":5.2727272727272725,"release_date":"2020-09-04"},
+      ]}})
+    .visit('http://localhost:3000') 
+  });
   it("Should be able to visit the page and render the correct elements", () => {
-    cy.visit("http://localhost:3000").contains("h1", "RancidTomatillos");
+    cy.contains("h1", "RancidTomatillos");
   });
   it("Should render movie images", () => {
     cy.get('img[alt="Money Plane"]').should("be.visible");
@@ -18,8 +27,7 @@ describe("Load homepage and render the Navigation Bar elements", () => {
       .should("eq", "http://localhost:3000/694919");
   });
   it("Should be able to click the back button in the browser to go home", () => {
-    cy.visit("http://localhost:3000")
-      .get('img[alt="Money Plane"')
+    cy.get('img[alt="Money Plane"')
       .click()
       .url()
       .should("eq", "http://localhost:3000/694919")
@@ -28,8 +36,7 @@ describe("Load homepage and render the Navigation Bar elements", () => {
       .should("eq", "http://localhost:3000/");
   });
   it("Should be able to click the forward button in the browser to go home", () => {
-    cy.visit("http://localhost:3000")
-      .get('img[alt="Money Plane"')
+    cy.get('img[alt="Money Plane"')
       .click()
       .url()
       .should("eq", "http://localhost:3000/694919")
@@ -41,8 +48,7 @@ describe("Load homepage and render the Navigation Bar elements", () => {
       .should("eq", "http://localhost:3000/694919");
   });
   it("Should return movie search results", () => {
-    cy.visit("http://localhost:3000")
-      .get('input[type="text-box"]')
+    cy.get('input[type="text-box"]')
       .type("Mulan")
       .should("have.value", "Mulan")
       .get('img[alt="Mulan"]')
@@ -51,8 +57,7 @@ describe("Load homepage and render the Navigation Bar elements", () => {
       .should("not.exist");
   });
   it("Should return an error message if searched movie is not found", () => {
-    cy.visit("http://localhost:3000")
-      .get('input[type="text-box"]')
+    cy.get('input[type="text-box"]')
       .type("Mulane")
       .should("have.value", "Mulane")
       .get("p")
@@ -61,4 +66,11 @@ describe("Load homepage and render the Navigation Bar elements", () => {
       )
       .should("be.visible");
   });
+  it("Should return an error message for a 404 movie not found", () => {
+    cy.visit('http://localhost:3000/6949198') 
+    .get("div.modal-failed-to-load-error")
+    .contains(
+      "Movie data failed to load. Please contact Comcast."
+    )
+  })
 });

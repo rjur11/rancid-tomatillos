@@ -1,6 +1,30 @@
 describe("Load homepage and render the Navigation Bar elements", () => {
+  beforeEach( () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      statusCode: 201,
+      body: {"movies":[
+        {"id":694919,"poster_path":"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg","backdrop_path":"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg","title":"Money Plane","average_rating":6.625,"release_date":"2020-09-29"},
+        {"id":337401,"poster_path":"https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg","backdrop_path":"https://image.tmdb.org/t/p/original//zzWGRw277MNoCs3zhyG3YmYQsXv.jpg","title":"Mulan","average_rating":5.2727272727272725,"release_date":"2020-09-04"},
+      ]}})
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+      statusCode: 201,
+      body: {"movie": {
+        "id":694919,
+        "title":"Money Plane",
+        "poster_path":"https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
+        "backdrop_path":"https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
+        "release_date":"2020-09-29","overview":"A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",
+        "genres":["Action"],
+        "budget":0,
+        "revenue":0,
+        "runtime":82,
+        "tagline":"",
+        "average_rating":6.625}}
+    })
+    .visit('http://localhost:3000/694919') 
+  });
   it("Should be able to visit the modal page and render the correct elements", () => {
-    cy.visit("http://localhost:3000/694919").contains("h2", "Money Plane");
+    cy.contains("h2", "Money Plane");
   });
   it("Should render a movie image", () => {
     cy.get('img[alt="Money Plane"]').should("be.visible");
@@ -40,18 +64,3 @@ describe("Load homepage and render the Navigation Bar elements", () => {
     cy.get("a.exit-modal").click().url().should("eq", "http://localhost:3000/");
   });
 });
-
-// it('should be able to fill out the email and password and click Submit, directing the user to a different page', () => {
-//   cy.intercept('POST', 'http://localhost:3001/api/v1/login', {
-//       statusCode: 201,
-//       body: {
-//         id: 2,
-//         image: "https://ca.slack-edge.com/T029P2S9M-U37MJAV0T-007ccf2f5eb2-512",
-//         name: "Leta Keane"
-//       }
-//     })
-//     .get('input[type="email"]').type('leta@turing.io')
-//     .get('input[type="password"]').type('keane20')
-//     .get('button').click()
-//     .url().should('include', '/dashboard')
-// });
