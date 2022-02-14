@@ -74,7 +74,7 @@ If a user does not want to scroll through the full list of movies, they can use 
 
 ![Search view](https://media.giphy.com/media/vsqsR4N2QmzvMp4e5V/giphy.gif)
 
-With the use of React Router, this website is set up to be easily navigatable with back/foward buttons, and provides unique urls (populated with movie ids) for quick page access
+With the use of React Router, this website is set up to be easily navigatable with back/foward buttons, and provides unique urls (populated with movie ids) for quick page access.
 
 ![Routerdetails](https://user-images.githubusercontent.com/69861203/153956161-56a5c776-6ef0-4787-8065-959dac99c290.jpg)
 
