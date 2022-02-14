@@ -1,8 +1,8 @@
--[ ] Commit message outlines changes in the pull request 
--[ ] Should mention reviewers name 
--[ ] Your code builds clean without any errors or warnings 
--[ ] You are using approved terminology 
--[ ] You are using approved formatting
+-[] Commit message outlines changes in the pull request 
+-[] Should mention reviewers name 
+-[] Your code builds clean without any errors or warnings 
+-[] You are using approved terminology 
+-[] You are using approved formatting
 
 ** What did I add? **
 
