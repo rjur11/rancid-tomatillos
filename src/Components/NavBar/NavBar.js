@@ -1,6 +1,6 @@
 import React from "react";
 import "./NavBar.css";
-import searchIcon from "./search.png";
+import searchIcon from "../../Images/search.png";
 
 const NavBar = ({ onChange }) => {
   return (

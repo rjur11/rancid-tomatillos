@@ -1,5 +1,5 @@
-import tomatillo from "./blackfilled.png";
-import emptyTomatillo from "./whiteclear.png";
+import tomatillo from "../../Images/blackfilled.png";
+import emptyTomatillo from "../../Images/whiteclear.png";
 import "./RatingDisplay.css";
 
 export default function RatingDisplay({ rating }) {
@@ -9,7 +9,11 @@ export default function RatingDisplay({ rating }) {
         <img src={tomatillo} className="tomatillo" alt="tomatillo" />
       ))}
       {[...Array(5 - rating)].map(() => (
-        <img src={emptyTomatillo} className="empty-tomatillo" alt="empty-tomatillo" />
+        <img
+          src={emptyTomatillo}
+          className="empty-tomatillo"
+          alt="empty-tomatillo"
+        />
       ))}
     </div>
   );

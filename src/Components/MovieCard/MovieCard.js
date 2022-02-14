@@ -1,6 +1,6 @@
 import React from "react";
 import "./MovieCard.css";
-import RatingDisplay from "./RatingDisplay";
+import RatingDisplay from "../RatingDisplay/RatingDisplay";
 import { Link } from "react-router-dom";
 
 const MovieCard = ({
