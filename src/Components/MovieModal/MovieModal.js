@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./MovieModal.css";
-import { getSingleMovie, getSingleMovieVideo } from "./apiCalls";
-import RatingDisplay from "./RatingDisplay";
+import { getSingleMovie, getSingleMovieVideo } from "../../apiCalls";
+import RatingDisplay from "../RatingDisplay/RatingDisplay";
 import ReactPlayer from "react-player";
 
 class MovieModal extends Component {
@@ -42,8 +42,13 @@ class MovieModal extends Component {
       <section className="movie-modal-preview-card">
         <h2 className="movie-modal-title">{this.state.movie.title}</h2>
         <div className="media-player">
-          {this.state.videoKey === "" ?
-            <img className="movie-modal-card-image" src={this.state.movie.backdrop_path} alt={this.state.movie.title} /> :
+          {this.state.videoKey === "" ? (
+            <img
+              className="movie-modal-card-image"
+              src={this.state.movie.backdrop_path}
+              alt={this.state.movie.title}
+            />
+          ) : (
             <ReactPlayer
               url={`https://www.youtube.com/embed/${this.state.videoKey}`}
               className="video-trailer"
@@ -51,7 +56,7 @@ class MovieModal extends Component {
               playing={true}
               light={this.state.movie.backdrop_path}
             />
-          }
+          )}
         </div>
         <div className="movie-modal-information">
           <div className="runtime-release-description-information">

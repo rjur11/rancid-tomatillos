@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import NavBar from "./NavBar";
-import MovieContainer from "./MovieContainer";
+import NavBar from "./Components/NavBar/NavBar";
+import MovieContainer from "./Components/MovieContainer/MovieContainer";
 import Modal from "react-modal";
-import MovieModal from "./MovieModal";
+import MovieModal from "./Components/MovieModal/MovieModal";
 import { getAllMovies } from "./apiCalls";
 import { Link } from "react-router-dom";
-import Loader from "./Loader";
+import Loader from "./Components/Loader/Loader";
 
 Modal.setAppElement("#root");
 
