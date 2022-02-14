@@ -1,4 +1,6 @@
-# Rancid Tomatillos
+# ![v1-40-tall-black](https://user-images.githubusercontent.com/69861203/153937916-5bb638c2-ed79-4c14-b4b5-9e5d7b38a08c.png) Rancid Tomatillos ![v1-40-tall-black](https://user-images.githubusercontent.com/69861203/153937916-5bb638c2-ed79-4c14-b4b5-9e5d7b38a08c.png)
+
+
 
 - Click [HERE](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html) to view the project spec
 - Click [HERE] to view the deployed site
@@ -11,6 +13,7 @@
 - [See the Site in Action](#see-the-site-in-action)
 - [Future Goals](#future-goals)
 - [Created By](#created-by)
+- [Credit](#credit)
 
 ## Abstract
 
@@ -25,6 +28,7 @@ Have you been searching for a movie review website that can do it all? Look no f
 - JSX
 - Cypress Testing
 - React Router
+- ReactPlayer, ReactModal packages
 - Movie Data API used for Network Requests (https://rancid-tomatillos.herokuapp.com/api/v2)
 - Project Structure Organized with [GitHub Project Board](https://github.com/rjur11/rancid-tomatillos/projects/1)
 
@@ -53,17 +57,43 @@ Alternatively, you can access the deployed site here: TBD
 
 ## See the Site in Action! 
 
+Homepage View: 
+
+<img width="1000" alt="Rancid Tomatillos Homepage" src="https://user-images.githubusercontent.com/69861203/153938125-2b24acf6-cfee-4323-b5eb-d6eaf296a227.png">
+
+Individual Movie Details View:
+
+<img width="1000" alt="Rancid Tomatillos Movie View" src="https://user-images.githubusercontent.com/69861203/153938253-4aa81874-d6a4-469c-955a-5496ab531387.png">
+
+A user can select an individual movie to view more details. They can access the movie's trailer, the runtime, year of release, description, rating, and genre(s) that specific movie falls into.
+
+![Modal view](https://media.giphy.com/media/CjccNJWzBUdDkSY9bu/giphy.gif)
+
+
+If a user does not want to scroll through the full list of movies, they can use the search bar to narrow down the movie results on the page. If a movie title cannot be found, the user will see a polite message on the screen asking them to search for a different title.
+
+![Search view](https://media.giphy.com/media/vsqsR4N2QmzvMp4e5V/giphy.gif)
+
+
+Rancid Tomatillos is set up to be responsive and resizes nicely for both mobile and computer screens:
+
+![Window resizing](https://media.giphy.com/media/5wRzJ2EKXdyuY0IXCN/giphy.gif)
+
 
 
 
 ## Future Goals
 
-- 
+- Smooth animations for movies cards loading into homepage, and the loading animation as well
+- Log in page for users to be able to review their own movies, or make a watch list
+- Ability to import/write text reviews (or discussion page) for individual movies 
 
 ## Created By:
 
 - [Rana Jurjus](https://github.com/rjur11)
 - [Tony Carpenter](https://github.com/tonycarpenter21)
 
+## Credit
 
+- Loading animation inspired by: https://loading.io/css/
 
