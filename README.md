@@ -3,7 +3,7 @@
 
 
 - Click [HERE](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html) to view the project spec
-- Click [HERE] to view the deployed site
+- Click [HERE](https://rancid-tomatillos-fw0sm9t03-rjur11.vercel.app/) to view the deployed site
 
 ## Table of Contents
 - [Abstract](#abstract)
@@ -41,7 +41,7 @@ To install this project, please see below:
 2. Next, `cd` into the cloned repository and `npm install` to install library dependancies
 3. Finally, run `npm start` and open up localhost at the port indicated to view the webpage
 ```
-Alternatively, you can access the deployed site here: TBD
+Alternatively, you can access the deployed site [HERE](https://rancid-tomatillos-fw0sm9t03-rjur11.vercel.app/)
     
 ## Features
 
