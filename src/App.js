@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import NavBar from "./NavBar";
-import MovieCard from "./MovieCard";
 import MovieContainer from "./MovieContainer";
 import Modal from "react-modal";
 import MovieModal from "./MovieModal";
@@ -24,7 +23,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    const apiMovieData = getAllMovies()
+    getAllMovies()
       .then(({ movies }) => this.setState({ movies, isLoading: false }))
       .catch(() => this.setState({ error: true }));
   };
