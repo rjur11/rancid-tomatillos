@@ -43,11 +43,12 @@ label {
   background-color: #96e6b3;
   border-radius: 0px 5px 5px 0px;
   border: 2px solid #96e6b3;
-  height: 26px;
+  height: 24px;
   cursor: pointer;
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 0px 8px;
 }
 
 .search-icon {
